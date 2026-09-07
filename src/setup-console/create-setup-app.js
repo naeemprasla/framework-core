@@ -10,8 +10,8 @@ export function createSetupApp({config,tokenManager,setupService,onComplete}){
   const requireSetup=(req,res,next)=>{if(!tokenManager.validateSession(cookie(req,"framework_setup_session")))return res.status(404).json({error:{code:"setup_locked",message:"Setup is unavailable"}});next();};
   app.get("/health/live",(_req,res)=>res.json({status:"installer"}));
   app.use("/setup/assets",express.static(resolve(here,"assets"),{fallthrough:false,immutable:false,maxAge:"1h",index:false,setHeaders:(res,filePath)=>{if(filePath.endsWith(".css"))res.type("text/css; charset=utf-8");if(filePath.endsWith(".js"))res.type("text/javascript; charset=utf-8");}}));
-  app.get("/setup",(req,res)=>{const query=req.originalUrl.includes("?")?req.originalUrl.slice(req.originalUrl.indexOf("?")):"";res.redirect(308,`/setup/${query}`);});
-  app.get("/setup/",(_req,res)=>{res.set("Cache-Control","no-store");res.sendFile(resolve(here,"index.html"));});
+  const sendSetupIndex=(_req,res)=>{res.set("Cache-Control","no-store");res.sendFile(resolve(here,"index.html"));};
+  app.get(["/setup","/setup/"],sendSetupIndex);
   app.post("/v1/setup/session",sameOrigin,(req,res)=>{const session=tokenManager.exchange(req.body?.token);if(!session)return res.status(404).json({error:{code:"invalid_setup_token",message:"Setup link is invalid or expired"}});res.cookie("framework_setup_session",session,{httpOnly:true,sameSite:"strict",secure:req.secure||config.env==="production",path:"/",maxAge:30*60*1000});res.json({data:{authorized:true}});});
   app.get("/v1/setup/system",requireSetup,(_req,res)=>res.json({data:setupService.systemCheck()}));
   app.post("/v1/setup/server",sameOrigin,requireSetup,(req,res,next)=>{try{res.json({data:setupService.setServerType(req.body?.server_type)});}catch(e){next(e);}});

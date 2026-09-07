@@ -1,4 +1,4 @@
-# Large-Scale Modular Framework Core v0.6.3
+# Large-Scale Modular Framework Core v0.6.4
 
 A dashboard-first modular Node.js/Express framework with PostgreSQL as the only required infrastructure dependency. Applications can run in **full-stack**, **headless**, or **hybrid** delivery modes. Redis is optional and can be configured later from the Admin Console.
 
@@ -53,13 +53,13 @@ npm run test:e2e
 ```
 
 
-## v0.6.3 setup update
+## v0.6.4 setup update
 
 The initial database step now treats **Supabase Direct Database** as the recommended provider. Paste the direct Postgres connection string from Supabase Dashboard → Connect. Direct mode requires the `db.<project-ref>.supabase.co:5432` endpoint and SSL; Supavisor/pooler URLs are rejected in this installer mode. Generic PostgreSQL remains available as an advanced alternative.
 
 The first-run UI has also been redesigned as a responsive four-step wizard: Server → Database → Application → Super Admin.
 
-## v0.6.3 final-audit changes
+## v0.6.4 final-audit changes
 
 - Fresh local development installs automatically open the one-time `/setup/?token=...` URL in the default browser. Auto-open is disabled for production, CI/test, and non-loopback URLs; set `AUTO_OPEN_SETUP=false` to disable it locally.
 - Setup links use the canonical trailing-slash URL and preserve token query parameters during redirects.

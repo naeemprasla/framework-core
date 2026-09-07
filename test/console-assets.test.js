@@ -8,9 +8,9 @@ async function text(path){ return readFile(new URL(path, root), "utf8"); }
 
 test("setup console uses route-relative assets", async()=>{
   const html = await text("src/setup-console/index.html");
-  assert.match(html, /href="\.\/assets\/setup\.css"/);
-  assert.match(html, /src="\.\/assets\/setup\.js"/);
-  assert.doesNotMatch(html, /href="\/setup\/assets\/setup\.css"/);
+  assert.match(html, /href="\/setup\/assets\/setup\.css"/);
+  assert.match(html, /src="\/setup\/assets\/setup\.js"/);
+  assert.doesNotMatch(html, /href="\.\/assets\/setup\.css"/);
 });
 
 test("admin console uses route-relative assets", async()=>{
@@ -20,12 +20,12 @@ test("admin console uses route-relative assets", async()=>{
   assert.doesNotMatch(html, /href="\/admin\/assets\/admin\.css"/);
 });
 
-test("setup canonical route preserves tokenized query and generated URL already has trailing slash", async()=>{
+test("setup renders directly with no trailing-slash redirect", async()=>{
   const source = await text("src/setup-console/create-setup-app.js");
-  assert.match(source, /originalUrl\.includes\("\?"\)/);
-  assert.match(source, /res\.redirect\(308,`\/setup\/\$\{query\}`\)/);
+  assert.match(source, /app\.get\(\["\/setup","\/setup\/"\],sendSetupIndex\)/);
+  assert.doesNotMatch(source, /res\.redirect\(/);
   assert.match(source, /text\/css/);
   const manager=new SetupTokenManager();
   const url=manager.url("http://localhost:3000");
-  assert.match(url,/^http:\/\/localhost:3000\/setup\/\?token=/);
+  assert.match(url,/^http:\/\/localhost:3000\/setup\?token=/);
 });
