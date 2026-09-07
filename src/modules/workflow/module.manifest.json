@@ -1,0 +1,21 @@
+{
+  "id": "framework.workflow",
+  "name": "Workflow",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "workflow.transition.execute"
+  ],
+  "permissions": [
+    "workflow.definition.manage",
+    "workflow.instance.read",
+    "workflow.transition.execute"
+  ],
+  "entry": "./index.js"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "framework.media",
+  "name": "Media",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "media.file.store"
+  ],
+  "permissions": [
+    "media.file.read",
+    "media.file.create",
+    "media.file.delete"
+  ],
+  "entry": "./index.js"
+}

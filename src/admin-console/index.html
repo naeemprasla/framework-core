@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Framework Control Plane</title>
+  <link rel="stylesheet" href="./assets/admin.css">
+</head>
+<body>
+  <div id="loginView" class="login-shell hidden">
+    <section class="login-card">
+      <div class="brand-mark">F</div>
+      <p class="eyebrow">FRAMEWORK CONTROL PLANE</p>
+      <h1>Administrator sign in</h1>
+      <p class="muted">Use a Framework Admin or Super Admin account.</p>
+      <form id="loginForm" class="stack-lg">
+        <label>Email<input id="loginEmail" name="email" type="email" autocomplete="username" required></label>
+        <label>Password<input id="loginPassword" name="password" type="password" autocomplete="current-password" required></label>
+        <button class="btn primary full" type="submit">Sign in</button>
+        <p id="loginError" class="form-error" role="alert"></p>
+      </form>
+      <form id="mfaForm" class="stack-lg hidden">
+        <p class="muted">Enter your authenticator code or a one-time recovery code.</p>
+        <label>Authentication code<input id="mfaCode" name="code" type="text" autocomplete="one-time-code" inputmode="numeric" required></label>
+        <button class="btn primary full" type="submit">Verify MFA</button>
+        <p id="mfaError" class="form-error" role="alert"></p>
+      </form>
+    </section>
+  </div>
+
+  <div id="appView" class="app-shell hidden">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-mark small">F</div><div><strong>Framework</strong><span>Control Plane</span></div></div>
+      <nav id="mainNav" class="nav">
+        <a href="#overview" data-page="overview" class="active"><span>◫</span>Overview</a>
+        <a href="#applications" data-page="applications"><span>▦</span>Applications</a>
+        <div class="nav-label">Extensions</div>
+        <a href="#modules" data-page="modules"><span>◇</span>Modules</a>
+        <a href="#themes" data-page="themes"><span>◩</span>Themes</a>
+        <div class="nav-label">Developers</div>
+        <a href="#developers" data-page="developers"><span>⌘</span>API & Headless</a>
+        <div class="nav-label">Infrastructure</div>
+        <a href="#infrastructure" data-page="infrastructure"><span>◈</span>Infrastructure</a>
+        <a href="#framework" data-page="framework"><span>⚙</span>Framework Settings</a>
+        <div class="nav-label">Operations</div>
+        <a href="#operations" data-page="operations"><span>↻</span>Jobs & Events</a>
+        <a href="#audit" data-page="audit"><span>≣</span>Audit</a>
+        <div class="nav-label">Governance</div>
+        <a href="#security" data-page="security"><span>⌾</span>Security</a>
+      </nav>
+      <div class="sidebar-footer"><span id="frameworkVersion">Framework</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuButton" class="icon-btn mobile-only" aria-label="Toggle navigation">☰</button>
+        <div class="command-search"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search current view…" aria-label="Search current view"></div>
+        <div class="top-actions">
+          <span id="healthPill" class="health-pill neutral">Checking…</span>
+          <button id="themeToggle" class="icon-btn" aria-label="Toggle color theme">◐</button>
+          <div class="user-menu"><span id="userName">Admin</span><button id="logoutButton" class="btn ghost small-btn">Sign out</button></div>
+        </div>
+      </header>
+
+      <section class="content">
+        <div id="pageHeader" class="page-header"><div><p class="eyebrow">CONTROL PLANE</p><h1>Overview</h1><p class="muted">Framework health, applications and operational status.</p></div><div id="pageActions"></div></div>
+        <div id="flash" class="flash hidden" role="status"></div>
+        <div id="pageContent" aria-live="polite"></div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="createAppDialog" class="dialog">
+    <form id="createAppForm" method="dialog" class="dialog-card">
+      <div class="dialog-head"><div><p class="eyebrow">NEW APPLICATION</p><h2>Create application</h2></div><button type="button" id="closeCreateApp" class="icon-btn">×</button></div>
+      <label>Name<input name="name" maxlength="160" required placeholder="Commerce Platform"></label>
+      <label>Base URL<input name="base_url" type="url" placeholder="https://app.example.com"></label>
+      <label>Delivery mode<select name="delivery_mode"><option value="fullstack">Full-stack</option><option value="headless">Headless</option><option value="hybrid">Hybrid</option></select></label>
+      <label>Tenant mode<select name="tenant_mode"><option>OPTIONAL</option><option>REQUIRED</option><option>DISABLED</option></select></label>
+      <div class="dialog-actions"><button type="button" id="cancelCreateApp" class="btn ghost">Cancel</button><button class="btn primary" type="submit">Create application</button></div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./assets/admin.js"></script>
+</body>
+</html>

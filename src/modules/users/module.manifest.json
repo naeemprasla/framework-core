@@ -1,0 +1,20 @@
+{
+  "id": "framework.users",
+  "name": "Users",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "users.profile.read"
+  ],
+  "permissions": [
+    "users.profile.read",
+    "users.profile.update"
+  ],
+  "entry": "./index.js"
+}

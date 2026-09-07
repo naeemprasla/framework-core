@@ -1,0 +1,1 @@
+import test from "node:test"; import assert from "node:assert/strict"; import {ProviderRegistry} from "../src/core/providers/provider-registry.js"; test("provider defaults",()=>{const r=new ProviderRegistry();const p={};r.register("email","default",p);assert.equal(r.get("email"),p);});

@@ -1,0 +1,21 @@
+{
+  "id": "framework.access",
+  "name": "Access",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "access.permission.check"
+  ],
+  "permissions": [
+    "access.role.read",
+    "access.role.manage",
+    "access.permission.manage"
+  ],
+  "entry": "./index.js"
+}

@@ -1,0 +1,13 @@
+CREATE SCHEMA IF NOT EXISTS identity;
+CREATE SCHEMA IF NOT EXISTS audit;
+CREATE SCHEMA IF NOT EXISTS infrastructure;
+CREATE TABLE IF NOT EXISTS identity.accounts(account_id text PRIMARY KEY,email text UNIQUE NOT NULL,status text NOT NULL,authority_domain text NOT NULL DEFAULT 'application',created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS identity.password_credentials(account_id text PRIMARY KEY REFERENCES identity.accounts(account_id) ON DELETE CASCADE,password_hash text NOT NULL,updated_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS identity.sessions(session_id text PRIMARY KEY,account_id text NOT NULL REFERENCES identity.accounts(account_id) ON DELETE CASCADE,token_hash text UNIQUE NOT NULL,expires_at timestamptz NOT NULL,revoked_at timestamptz,ip text,user_agent text,created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_sessions_account_active ON identity.sessions(account_id,expires_at) WHERE revoked_at IS NULL;
+CREATE TABLE IF NOT EXISTS core.tenants(tenant_id text PRIMARY KEY,app_id text NOT NULL,name text NOT NULL,slug text NOT NULL,status text NOT NULL,created_at timestamptz NOT NULL DEFAULT now(),UNIQUE(app_id,slug));
+CREATE TABLE IF NOT EXISTS core.application_modules(app_id text NOT NULL,module_id text NOT NULL,enabled boolean NOT NULL DEFAULT true,config jsonb NOT NULL DEFAULT '{}'::jsonb,enabled_at timestamptz DEFAULT now(),PRIMARY KEY(app_id,module_id));
+CREATE TABLE IF NOT EXISTS audit.events(audit_id bigserial PRIMARY KEY,action text NOT NULL,actor_id text,app_id text,tenant_id text,target_type text,target_id text,metadata jsonb NOT NULL DEFAULT '{}'::jsonb,created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_audit_events_time ON audit.events(created_at DESC);
+CREATE TABLE IF NOT EXISTS infrastructure.outbox_events(event_id text PRIMARY KEY,event_type text NOT NULL,event_version int NOT NULL,payload jsonb NOT NULL,status text NOT NULL DEFAULT 'pending',attempts int NOT NULL DEFAULT 0,created_at timestamptz NOT NULL DEFAULT now(),published_at timestamptz);
+CREATE INDEX IF NOT EXISTS idx_outbox_pending ON infrastructure.outbox_events(status,created_at) WHERE status='pending';

@@ -1,0 +1,1 @@
+import test from "node:test"; import assert from "node:assert/strict"; import {TemplateEngine} from "../src/core/themes/template-engine.js"; test("template escapes values",()=>{const e=new TemplateEngine();assert.equal(e.render("<h1>{{ user.name }}</h1>",{user:{name:"<x>"}}),"<h1>&lt;x&gt;</h1>");});

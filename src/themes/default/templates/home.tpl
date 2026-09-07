@@ -1,0 +1,1 @@
+<!doctype html><html><head><title>{{ app.name }}</title></head><body><main><h1>{{ app.name }}</h1><p>Framework application is ready.</p></main></body></html>

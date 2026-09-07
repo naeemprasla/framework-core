@@ -1,0 +1,1 @@
+export function defineProvider(definition){ if(!definition?.type||!definition?.name) throw new Error("Provider type/name required"); return definition; }

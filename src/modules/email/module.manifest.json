@@ -1,0 +1,21 @@
+{
+  "id": "framework.email",
+  "name": "Email",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "communication.email.send"
+  ],
+  "permissions": [
+    "email.template.read",
+    "email.template.manage",
+    "email.message.send"
+  ],
+  "entry": "./index.js"
+}

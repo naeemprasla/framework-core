@@ -1,0 +1,20 @@
+export const ErrorCodes = Object.freeze({
+  INTERNAL_ERROR: "internal_error",
+  VALIDATION_FAILED: "validation_failed",
+  NOT_FOUND: "not_found",
+  CONFLICT: "conflict",
+  UNAUTHORIZED: "unauthorized",
+  FORBIDDEN: "forbidden",
+  TOO_MANY_REQUESTS: "too_many_requests",
+  SERVICE_UNAVAILABLE: "service_unavailable",
+  FRAMEWORK_NOT_INITIALIZED: "framework_not_initialized",
+  SETUP_LOCKED: "setup_locked",
+  INVALID_SETUP_TOKEN: "invalid_setup_token",
+  CAPABILITY_NOT_FOUND: "capability_not_found",
+  SERVICE_NOT_FOUND: "service_not_found",
+  DUPLICATE_REGISTRATION: "duplicate_registration",
+  INVALID_MODULE_MANIFEST: "invalid_module_manifest",
+  MODULE_INCOMPATIBLE: "module_incompatible",
+  MODULE_DEPENDENCY_MISSING: "module_dependency_missing",
+  IDEMPOTENCY_CONFLICT: "idempotency_conflict"
+});

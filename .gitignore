@@ -1,0 +1,9 @@
+node_modules/
+.env
+coverage/
+*.log
+.DS_Store
+
+# Local encrypted bootstrap/runtime secrets (never commit)
+var/config/
+var/secrets/

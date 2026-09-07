@@ -1,0 +1,1 @@
+export function defineModule(definition){ if(!definition||typeof definition.register!=="function") throw new Error("Module definition requires register()"); return definition; }

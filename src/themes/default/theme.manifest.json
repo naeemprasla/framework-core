@@ -1,0 +1,10 @@
+{
+  "id": "framework.default",
+  "name": "Framework Default",
+  "version": "0.2.0",
+  "framework": {
+    "minimum": "0.2.0"
+  },
+  "templates": "./templates",
+  "assets": "./assets"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "framework.automation",
+  "name": "Automation",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "automation.execute"
+  ],
+  "permissions": [
+    "automation.definition.manage",
+    "automation.run.read"
+  ],
+  "entry": "./index.js"
+}

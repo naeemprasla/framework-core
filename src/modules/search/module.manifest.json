@@ -1,0 +1,20 @@
+{
+  "id": "framework.search",
+  "name": "Search",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "search.query"
+  ],
+  "permissions": [
+    "search.query.execute",
+    "search.index.manage"
+  ],
+  "entry": "./index.js"
+}

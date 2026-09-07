@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Framework Setup</title>
+  <link rel="stylesheet" href="./assets/setup.css">
+</head>
+<body>
+  <div class="page-glow page-glow-a"></div><div class="page-glow page-glow-b"></div>
+  <main class="setup-layout">
+    <aside class="setup-aside">
+      <div class="brand"><div class="mark">F</div><div><strong>Framework</strong><span>Secure first-run setup</span></div></div>
+      <div class="aside-copy">
+        <span class="eyebrow">INITIAL PROVISIONING</span>
+        <h1>Launch your framework in four guided steps.</h1>
+        <p>Choose the server, connect your database, create the first application and secure the control plane with a Super Admin.</p>
+      </div>
+      <div class="security-note"><span class="security-icon">✓</span><div><strong>Setup is temporary</strong><p>The installer locks itself permanently after the first Super Admin is created.</p></div></div>
+      <div class="aside-footer">Advanced modules, Redis, providers and infrastructure are configured later from the dashboard.</div>
+    </aside>
+
+    <section class="setup-main">
+      <div class="wizard-card">
+        <div class="wizard-top">
+          <div><span class="eyebrow">FRAMEWORK SETUP</span><h2>Initial configuration</h2></div>
+          <span class="secure-pill">Secure session</span>
+        </div>
+        <div class="progress"><div class="progress-track"><i id="progressBar"></i></div><div class="steps">
+          <span class="active"><b>1</b><em>Server</em></span>
+          <span><b>2</b><em>Database</em></span>
+          <span><b>3</b><em>Application</em></span>
+          <span><b>4</b><em>Super Admin</em></span>
+        </div></div>
+        <div id="view" class="view"><div class="loading"><span></span><p>Authorizing secure setup link…</p></div></div>
+        <div id="error" class="error" hidden></div>
+      </div>
+      <p class="support-copy">Need a clean restart? Stop the server, review the runtime configuration, then start the installer again before setup is finalized.</p>
+    </section>
+  </main>
+  <script type="module" src="./assets/setup.js"></script>
+</body>
+</html>

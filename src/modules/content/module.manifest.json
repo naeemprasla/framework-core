@@ -1,0 +1,22 @@
+{
+  "id": "framework.content",
+  "name": "Content",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "content.entity.manage"
+  ],
+  "permissions": [
+    "content.entry.read",
+    "content.entry.create",
+    "content.entry.update",
+    "content.entry.delete"
+  ],
+  "entry": "./index.js"
+}

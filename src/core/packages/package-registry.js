@@ -1,0 +1,1 @@
+export class PackageRegistry { constructor(){this.items=new Map();} add(pkg){const k=`${pkg.type}:${pkg.id}@${pkg.version}`;if(this.items.has(k))throw new Error(`Package exists: ${k}`);this.items.set(k,pkg);return pkg;} list(){return [...this.items.values()];} }

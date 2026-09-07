@@ -1,0 +1,21 @@
+{
+  "id": "framework.forms",
+  "name": "Forms",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "forms.schema.validate"
+  ],
+  "permissions": [
+    "forms.schema.read",
+    "forms.schema.manage",
+    "forms.submission.create"
+  ],
+  "entry": "./index.js"
+}

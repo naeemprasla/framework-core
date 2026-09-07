@@ -1,0 +1,20 @@
+{
+  "id": "framework.notifications",
+  "name": "Notifications",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "communication.notification.send"
+  ],
+  "permissions": [
+    "notification.read",
+    "notification.manage"
+  ],
+  "entry": "./index.js"
+}

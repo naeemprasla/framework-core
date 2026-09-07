@@ -1,0 +1,21 @@
+{
+  "id": "framework.billing",
+  "name": "Billing",
+  "version": "0.3.0",
+  "framework": {
+    "minimum": "0.3.0"
+  },
+  "dependencies": {
+    "required": [],
+    "optional": []
+  },
+  "provides": [
+    "commerce.payment.create"
+  ],
+  "permissions": [
+    "billing.checkout.create",
+    "billing.invoice.read",
+    "billing.refund.create"
+  ],
+  "entry": "./index.js"
+}

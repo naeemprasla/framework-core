@@ -1,0 +1,1 @@
+export function defineTheme(definition){ if(!definition?.id) throw new Error("Theme id required"); return definition; }

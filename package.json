@@ -1,0 +1,29 @@
+{
+  "name": "large-scale-modular-framework-core",
+  "version": "0.6.2",
+  "private": true,
+  "description": "Dashboard-first modular application framework with full-stack, headless and hybrid delivery, custom modules, PostgreSQL-first setup and optional Redis scaling",
+  "type": "module",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "migrate": "node scripts/migrate.js",
+    "test": "node --test",
+    "check": "find src test scripts -name \"*.js\" -print0 | xargs -0 -n1 node --check",
+    "test:e2e": "node --test test/e2e-framework.test.js",
+    "check:imports": "node scripts/check-relative-imports.mjs"
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "express": "5.1.0",
+    "helmet": "8.1.0",
+    "pg": "8.16.3",
+    "pino": "9.9.0",
+    "redis": "5.8.2",
+    "zod": "4.1.5"
+  },
+  "packageManager": "npm@11"
+}
