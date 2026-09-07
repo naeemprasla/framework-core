@@ -1,4 +1,4 @@
-# Security Status — v0.6.0
+# Security Status — v0.6.3
 
 Current controls include protected Framework Admin authority, HttpOnly SameSite admin sessions, optional TOTP MFA enforced after enrollment, bounded password hashing, login throttling, token peppering, encrypted runtime/module/provider secrets, one-time setup token, permanent setup lock, same-origin admin mutations, safe error envelopes, path-confined storage, non-executable templates, migration locking, durable jobs/outbox, module dependency/capability restrictions, per-application module enablement, per-app API/CORS controls, and hashed API credentials.
 

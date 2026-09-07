@@ -1,4 +1,4 @@
-# Installation — v0.6.1
+# Installation — v0.6.3
 
 1. Extract the framework.
 2. Install Node.js 22+ dependencies with your deployment pipeline.
@@ -22,3 +22,7 @@ For a live server, use HTTPS. The installer persists live-server mode and the ap
 During **Step 2 — Database**, Supabase Direct is the default option. In the Supabase project dashboard, choose **Connect** and copy the **Direct connection** string. The installer accepts direct endpoints in the form `db.<project-ref>.supabase.co:5432`, enforces SSL, tests the connection, and runs Core migrations. Pooler endpoints are intentionally rejected when Direct mode is selected.
 
 Supabase Direct connections are IPv6 by default unless the project has IPv4 support. Your deployment server therefore needs compatible network connectivity. Generic PostgreSQL can be selected from the same setup screen when the framework is not using Supabase.
+
+## Automatic local setup launch
+
+After the installer server successfully binds, local development installations open the one-time setup URL in the operating system's default browser. The generated URL is canonical (`/setup/?token=...`) so the token survives routing. Production, CI/test, and non-loopback deployments do not auto-launch a browser. Set `AUTO_OPEN_SETUP=false` when running a local process without a desktop session.

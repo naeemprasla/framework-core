@@ -1,4 +1,4 @@
-# Admin Console Implementation — v0.6.0
+# Admin Console Implementation — v0.6.3
 
 The Admin Console uses same-origin HttpOnly administrator sessions and protected JSON control-plane routes. State-changing routes use same-origin protection and Framework Admin/Super Admin authorization.
 

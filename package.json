@@ -1,8 +1,8 @@
 {
   "name": "large-scale-modular-framework-core",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "private": true,
-  "description": "Dashboard-first modular application framework with full-stack, headless and hybrid delivery, custom modules, PostgreSQL-first setup and optional Redis scaling",
+  "description": "Audited dashboard-first modular application framework with full-stack, headless and hybrid delivery, custom modules, Supabase Direct/PostgreSQL setup, optional Redis scaling, and safe local setup auto-open",
   "type": "module",
   "engines": {
     "node": ">=22.0.0"

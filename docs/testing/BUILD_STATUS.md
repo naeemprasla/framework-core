@@ -1,4 +1,4 @@
-# Build Status — v0.6.1 Dashboard-First Headless Core
+# Build Status — v0.6.3 Final Audited Dashboard-First Headless Core
 
 Implemented:
 
@@ -39,3 +39,15 @@ Verification: JavaScript syntax, relative import integrity, full Node test suite
 - Added console asset-link regression tests.
 - Detailed project documentation moved under `docs/` per repository policy.
 - Verification: 45/45 tests PASS, syntax PASS, relative import integrity PASS.
+
+## v0.6.3 final audit
+
+- Safe local automatic setup URL launch.
+- Canonical token-preserving setup URL.
+- Centralized framework version source.
+- Persisted Super Admin profile.
+- Retry-safe initial application creation.
+- Application context required for all module routes.
+- Single canonical Admin Console router/static mount.
+- Remote/live setup origin handling hardened.
+- Verification: 51/51 tests PASS, syntax PASS, relative import integrity PASS.

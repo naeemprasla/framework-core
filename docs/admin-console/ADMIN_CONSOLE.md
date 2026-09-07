@@ -1,4 +1,4 @@
-# Framework Admin Console — v0.6.0
+# Framework Admin Console — v0.6.3
 
 The protected Core-owned Admin Console is served at `/admin` and remains independent from application themes.
 

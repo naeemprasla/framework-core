@@ -44,9 +44,9 @@ import { SecretBox } from "../core/security/secret-box.js";
 import { dirname, resolve } from "node:path";
 import { readdir, access } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
+import { FRAMEWORK_VERSION } from "../core/version.js";
 
 const here = dirname(fileURLToPath(import.meta.url));
-const FRAMEWORK_VERSION = "0.6.0";
 const officialModules = ["users","access","email","notifications","billing","messaging","media","content","search","forms","workflow","automation"];
 
 export async function bootstrapCore(kernel) {

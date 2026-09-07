@@ -1,4 +1,4 @@
-# Installer Security Notes — v0.6.0
+# Installer Security Notes — v0.6.3
 
 - One-time high-entropy setup token is exchanged for an HttpOnly SameSite setup session.
 - Setup mutation endpoints reject cross-origin/cross-site requests.
